@@ -1,0 +1,110 @@
+Read in data...
+<class 'pandas.core.frame.DataFrame'>
+DatetimeIndex: 510070 entries, 2015-09-16 03:51:00 to 2016-05-03 20:55:00
+Data columns (total 21 columns):
+ID                      510070 non-null int64
+Case Number             510070 non-null object
+Block                   510070 non-null object
+IUCR                    510070 non-null object
+Primary Type            510070 non-null object
+Description             510070 non-null object
+Location Description    510070 non-null object
+Arrest                  510070 non-null bool
+Domestic                510070 non-null bool
+Beat                    510070 non-null int64
+District                510070 non-null int64
+Ward                    510070 non-null float64
+Community Area          510070 non-null int64
+FBI Code                510070 non-null object
+X Coordinate            510070 non-null float64
+Y Coordinate            510070 non-null float64
+Year                    510070 non-null int64
+Updated On              510070 non-null object
+Latitude                510070 non-null float64
+Longitude               510070 non-null float64
+Location                510070 non-null object
+dtypes: bool(2), float64(5), int64(5), object(9)
+memory usage: 78.8+ MB
+None
+
+Extract features...
+<class 'pandas.core.frame.DataFrame'>
+DatetimeIndex: 510070 entries, 2015-09-16 03:51:00 to 2016-05-03 20:55:00
+Data columns (total 14 columns):
+Primary Type            510070 non-null object
+Location Description    510070 non-null object
+Arrest                  510070 non-null bool
+Domestic                510070 non-null bool
+Beat                    510070 non-null int64
+District                510070 non-null int64
+Ward                    510070 non-null float64
+Community Area          510070 non-null int64
+Year                    510070 non-null int64
+Latitude                510070 non-null float64
+Longitude               510070 non-null float64
+Hour                    510070 non-null int64
+Weekday                 510070 non-null int64
+Month                   510070 non-null int64
+dtypes: bool(2), float64(3), int64(7), object(2)
+memory usage: 51.6+ MB
+None
+Splitting data...
+x_Training set has 61208 rows, 14 columns.
+x_Test set has 40806 rows, 14 columns.
+Start grid search for xgb...
+{'gamma': [0.35, 0.4, 0.45],
+ 'learning_rate': [0.1],
+ 'max_depth': [3, 4],
+ 'n_estimators': [600]}
+Best parameters chosen is: {'n_estimators': 600, 'learning_rate': 0.1, 'max_depth': 4, 'gamma': 0.45}
+Best score is: -1.49669545296
+Time used for searching is 11.5389847358 min.
+   mean_fit_time  mean_score_time  mean_test_score  mean_train_score  \
+0      28.662910         0.822692        -1.498092         -1.379969   
+1      36.936069         0.884334        -1.498170         -1.277277   
+2      28.681221         0.768304        -1.497748         -1.386822   
+3      37.334256         0.892106        -1.497856         -1.278709   
+4      28.707909         0.750977        -1.497252         -1.390047   
+5      36.873345         0.868203        -1.496695         -1.292795   
+
+  param_gamma param_learning_rate param_max_depth param_n_estimators  \
+0        0.35                 0.1               3                600   
+1        0.35                 0.1               4                600   
+2         0.4                 0.1               3                600   
+3         0.4                 0.1               4                600   
+4        0.45                 0.1               3                600   
+5        0.45                 0.1               4                600   
+
+                                              params  rank_test_score  \
+0  {u'n_estimators': 600, u'learning_rate': 0.1, ...                5   
+1  {u'n_estimators': 600, u'learning_rate': 0.1, ...                6   
+2  {u'n_estimators': 600, u'learning_rate': 0.1, ...                3   
+3  {u'n_estimators': 600, u'learning_rate': 0.1, ...                4   
+4  {u'n_estimators': 600, u'learning_rate': 0.1, ...                2   
+5  {u'n_estimators': 600, u'learning_rate': 0.1, ...                1   
+
+   split0_test_score  split0_train_score  split1_test_score  \
+0          -1.493465           -1.380760          -1.500671   
+1          -1.493895           -1.286710          -1.499477   
+2          -1.493681           -1.393542          -1.500255   
+3          -1.494451           -1.283391          -1.499522   
+4          -1.492741           -1.397116          -1.500076   
+5          -1.493275           -1.301857          -1.497699   
+
+   split1_train_score  split2_test_score  split2_train_score  std_fit_time  \
+0           -1.380287          -1.500141           -1.378859      0.473220   
+1           -1.272292          -1.501139           -1.272827      0.296022   
+2           -1.383904          -1.499306           -1.383020      0.616672   
+3           -1.276078          -1.499596           -1.276659      0.303377   
+4           -1.388873          -1.498940           -1.384152      0.364761   
+5           -1.293336          -1.499113           -1.283192      0.865192   
+
+   std_score_time  std_test_score  std_train_score  
+0        0.014174        0.003279         0.000808  
+1        0.022289        0.003098         0.006674  
+2        0.029556        0.002901         0.004766  
+3        0.014287        0.002408         0.003319  
+4        0.028846        0.003223         0.005357  
+5        0.027623        0.002487         0.007630  
+accuracy: 0.425967
+Time used: 12.7716204007.

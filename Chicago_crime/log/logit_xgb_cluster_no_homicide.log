@@ -1,0 +1,59 @@
+Read in data...
+<class 'pandas.core.frame.DataFrame'>
+DatetimeIndex: 510070 entries, 2015-09-16 03:51:00 to 2016-05-03 20:55:00
+Data columns (total 21 columns):
+ID                      510070 non-null int64
+Case Number             510070 non-null object
+Block                   510070 non-null object
+IUCR                    510070 non-null object
+Primary Type            510070 non-null object
+Description             510070 non-null object
+Location Description    510070 non-null object
+Arrest                  510070 non-null bool
+Domestic                510070 non-null bool
+Beat                    510070 non-null int64
+District                510070 non-null int64
+Ward                    510070 non-null float64
+Community Area          510070 non-null int64
+FBI Code                510070 non-null object
+X Coordinate            510070 non-null float64
+Y Coordinate            510070 non-null float64
+Year                    510070 non-null int64
+Updated On              510070 non-null object
+Latitude                510070 non-null float64
+Longitude               510070 non-null float64
+Location                510070 non-null object
+dtypes: bool(2), float64(5), int64(5), object(9)
+memory usage: 78.8+ MB
+None
+
+Extract features...
+<class 'pandas.core.frame.DataFrame'>
+DatetimeIndex: 510070 entries, 2015-09-16 03:51:00 to 2016-05-03 20:55:00
+Data columns (total 14 columns):
+Primary Type            510070 non-null object
+Location Description    510070 non-null object
+Arrest                  510070 non-null bool
+Domestic                510070 non-null bool
+Beat                    510070 non-null int64
+District                510070 non-null int64
+Ward                    510070 non-null float64
+Community Area          510070 non-null int64
+Year                    510070 non-null int64
+Latitude                510070 non-null float64
+Longitude               510070 non-null float64
+Hour                    510070 non-null int64
+Weekday                 510070 non-null int64
+Month                   510070 non-null int64
+dtypes: bool(2), float64(3), int64(7), object(2)
+memory usage: 51.6+ MB
+None
+Splitting data...
+x_Training set has 61208 rows, 14 columns.
+x_Test set has 40806 rows, 14 columns.
+logloss: 1.635243
+accuracy: 0.362692
+Time used: 0.17706075112.
+logloss: 1.474364
+accuracy: 0.426261
+Time used: 1.00361400048.

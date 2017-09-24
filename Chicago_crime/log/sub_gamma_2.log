@@ -1,0 +1,197 @@
+Read in data...
+<class 'pandas.core.frame.DataFrame'>
+DatetimeIndex: 510070 entries, 2015-09-16 03:51:00 to 2016-05-03 20:55:00
+Data columns (total 21 columns):
+ID                      510070 non-null int64
+Case Number             510070 non-null object
+Block                   510070 non-null object
+IUCR                    510070 non-null object
+Primary Type            510070 non-null object
+Description             510070 non-null object
+Location Description    510070 non-null object
+Arrest                  510070 non-null bool
+Domestic                510070 non-null bool
+Beat                    510070 non-null int64
+District                510070 non-null int64
+Ward                    510070 non-null float64
+Community Area          510070 non-null int64
+FBI Code                510070 non-null object
+X Coordinate            510070 non-null float64
+Y Coordinate            510070 non-null float64
+Year                    510070 non-null int64
+Updated On              510070 non-null object
+Latitude                510070 non-null float64
+Longitude               510070 non-null float64
+Location                510070 non-null object
+dtypes: bool(2), float64(5), int64(5), object(9)
+memory usage: 78.8+ MB
+None
+
+Extract features...
+<class 'pandas.core.frame.DataFrame'>
+DatetimeIndex: 510070 entries, 2015-09-16 03:51:00 to 2016-05-03 20:55:00
+Data columns (total 14 columns):
+Primary Type            510070 non-null object
+Location Description    510070 non-null object
+Arrest                  510070 non-null bool
+Domestic                510070 non-null bool
+Beat                    510070 non-null int64
+District                510070 non-null int64
+Ward                    510070 non-null float64
+Community Area          510070 non-null int64
+Year                    510070 non-null int64
+Latitude                510070 non-null float64
+Longitude               510070 non-null float64
+Hour                    510070 non-null int64
+Weekday                 510070 non-null int64
+Month                   510070 non-null int64
+dtypes: bool(2), float64(3), int64(7), object(2)
+memory usage: 51.6+ MB
+None
+Splitting data...
+x_Training set has 61208 rows, 14 columns.
+x_Test set has 40806 rows, 14 columns.
+Start grid search for xgb...
+{'gamma': [0.4, 0.45, 0.5, 0.55, 0.6],
+ 'learning_rate': [0.1],
+ 'max_depth': [4],
+ 'n_estimators': [600],
+ 'subsample': [1, 0.9, 0.8, 0.7]}
+Best parameters chosen is: {'n_estimators': 600, 'subsample': 1, 'learning_rate': 0.1, 'max_depth': 4, 'gamma': 0.6}
+Best score is: -1.49916793159
+Time used for searching is 42.3059204658 min.
+    mean_fit_time  mean_score_time  mean_test_score  mean_train_score  \
+0       34.648063         0.955700        -1.502763         -1.295238   
+1       40.768906         1.057540        -1.501637         -1.244389   
+2       39.151674         1.063296        -1.502693         -1.237919   
+3       38.952842         1.101074        -1.504056         -1.235673   
+4       34.899292         0.947596        -1.502178         -1.302281   
+5       41.451040         1.091169        -1.501903         -1.245220   
+6       41.382297         1.082458        -1.502423         -1.237718   
+7       41.286683         1.078167        -1.503775         -1.236278   
+8       37.264314         0.921082        -1.501036         -1.308812   
+9       41.646397         1.058075        -1.501376         -1.245463   
+10      39.422112         1.039793        -1.502209         -1.238362   
+11      38.972596         1.070216        -1.503501         -1.236942   
+12      34.778922         0.769873        -1.501201         -1.319622   
+13      38.570408         0.900834        -1.501159         -1.246900   
+14      38.590346         0.910921        -1.502050         -1.239368   
+15      39.179792         0.936285        -1.503958         -1.237284   
+16      33.644890         0.683930        -1.499168         -1.340570   
+17      38.765676         0.900911        -1.501379         -1.247264   
+18      38.611264         0.923010        -1.502026         -1.240230   
+19      38.581561         0.935572        -1.503687         -1.238227   
+
+   param_gamma param_learning_rate param_max_depth param_n_estimators  \
+0          0.4                 0.1               4                600   
+1          0.4                 0.1               4                600   
+2          0.4                 0.1               4                600   
+3          0.4                 0.1               4                600   
+4         0.45                 0.1               4                600   
+5         0.45                 0.1               4                600   
+6         0.45                 0.1               4                600   
+7         0.45                 0.1               4                600   
+8          0.5                 0.1               4                600   
+9          0.5                 0.1               4                600   
+10         0.5                 0.1               4                600   
+11         0.5                 0.1               4                600   
+12        0.55                 0.1               4                600   
+13        0.55                 0.1               4                600   
+14        0.55                 0.1               4                600   
+15        0.55                 0.1               4                600   
+16         0.6                 0.1               4                600   
+17         0.6                 0.1               4                600   
+18         0.6                 0.1               4                600   
+19         0.6                 0.1               4                600   
+
+   param_subsample                                             params  \
+0                1  {u'n_estimators': 600, u'subsample': 1, u'lear...   
+1              0.9  {u'n_estimators': 600, u'subsample': 0.9, u'le...   
+2              0.8  {u'n_estimators': 600, u'subsample': 0.8, u'le...   
+3              0.7  {u'n_estimators': 600, u'subsample': 0.7, u'le...   
+4                1  {u'n_estimators': 600, u'subsample': 1, u'lear...   
+5              0.9  {u'n_estimators': 600, u'subsample': 0.9, u'le...   
+6              0.8  {u'n_estimators': 600, u'subsample': 0.8, u'le...   
+7              0.7  {u'n_estimators': 600, u'subsample': 0.7, u'le...   
+8                1  {u'n_estimators': 600, u'subsample': 1, u'lear...   
+9              0.9  {u'n_estimators': 600, u'subsample': 0.9, u'le...   
+10             0.8  {u'n_estimators': 600, u'subsample': 0.8, u'le...   
+11             0.7  {u'n_estimators': 600, u'subsample': 0.7, u'le...   
+12               1  {u'n_estimators': 600, u'subsample': 1, u'lear...   
+13             0.9  {u'n_estimators': 600, u'subsample': 0.9, u'le...   
+14             0.8  {u'n_estimators': 600, u'subsample': 0.8, u'le...   
+15             0.7  {u'n_estimators': 600, u'subsample': 0.7, u'le...   
+16               1  {u'n_estimators': 600, u'subsample': 1, u'lear...   
+17             0.9  {u'n_estimators': 600, u'subsample': 0.9, u'le...   
+18             0.8  {u'n_estimators': 600, u'subsample': 0.8, u'le...   
+19             0.7  {u'n_estimators': 600, u'subsample': 0.7, u'le...   
+
+         ...         split0_test_score  split0_train_score  split1_test_score  \
+0        ...                 -1.513868           -1.278404          -1.494952   
+1        ...                 -1.512922           -1.240356          -1.495053   
+2        ...                 -1.513783           -1.232781          -1.496572   
+3        ...                 -1.514436           -1.230712          -1.498779   
+4        ...                 -1.513812           -1.289793          -1.495226   
+5        ...                 -1.513011           -1.239650          -1.495667   
+6        ...                 -1.513775           -1.232672          -1.496622   
+7        ...                 -1.513744           -1.231067          -1.498744   
+8        ...                 -1.513142           -1.286779          -1.492830   
+9        ...                 -1.512038           -1.240110          -1.496216   
+10       ...                 -1.513214           -1.233649          -1.496151   
+11       ...                 -1.513192           -1.232386          -1.498522   
+12       ...                 -1.513849           -1.296442          -1.493137   
+13       ...                 -1.512123           -1.241456          -1.495059   
+14       ...                 -1.513146           -1.234473          -1.495769   
+15       ...                 -1.514893           -1.232242          -1.497824   
+16       ...                 -1.510858           -1.316032          -1.492501   
+17       ...                 -1.511948           -1.242088          -1.495886   
+18       ...                 -1.512584           -1.234949          -1.496192   
+19       ...                 -1.514903           -1.233138          -1.497165   
+
+    split1_train_score  split2_test_score  split2_train_score  std_fit_time  \
+0            -1.311144          -1.499468           -1.296166      0.470354   
+1            -1.245949          -1.496935           -1.246862      3.480756   
+2            -1.240096          -1.497724           -1.240879      0.306126   
+3            -1.237806          -1.498953           -1.238501      0.409402   
+4            -1.308612          -1.497495           -1.308437      0.274633   
+5            -1.246841          -1.497032           -1.249170      0.652227   
+6            -1.240225          -1.496871           -1.240257      0.398635   
+7            -1.237680          -1.498837           -1.240088      0.440344   
+8            -1.325165          -1.497135           -1.314492      0.352123   
+9            -1.247429          -1.495873           -1.248848      0.379424   
+10           -1.241021          -1.497261           -1.240417      1.105808   
+11           -1.238507          -1.498789           -1.239934      0.279132   
+12           -1.331055          -1.496618           -1.331370      1.749438   
+13           -1.248956          -1.496295           -1.250288      0.424164   
+14           -1.241971          -1.497234           -1.241660      0.451646   
+15           -1.238418          -1.499157           -1.241192      0.698215   
+16           -1.341037          -1.494145           -1.364640      0.142004   
+17           -1.248871          -1.496304           -1.250832      0.346170   
+18           -1.242943          -1.497300           -1.242798      0.095156   
+19           -1.239633          -1.498994           -1.241909      0.086625   
+
+    std_score_time  std_test_score  std_train_score  
+0         0.005010        0.008066         0.013382  
+1         0.014658        0.008017         0.002876  
+2         0.014779        0.007856         0.003647  
+3         0.015713        0.007340         0.003519  
+4         0.011196        0.008279         0.008830  
+5         0.018382        0.007874         0.004052  
+6         0.015845        0.008028         0.003568  
+7         0.018756        0.007050         0.003814  
+8         0.027678        0.008739         0.016178  
+9         0.007917        0.007541         0.003829  
+10        0.015506        0.007795         0.003342  
+11        0.028250        0.006853         0.003274  
+12        0.059998        0.009056         0.016391  
+13        0.013024        0.007769         0.003888  
+14        0.019618        0.007869         0.003464  
+15        0.010375        0.007752         0.003741  
+16        0.045561        0.008293         0.019847  
+17        0.007290        0.007475         0.003746  
+18        0.006740        0.007480         0.003735  
+19        0.005875        0.007966         0.003716  
+
+[20 rows x 21 columns]
+accuracy: 0.430721
+Time used: 45.3186007977.
