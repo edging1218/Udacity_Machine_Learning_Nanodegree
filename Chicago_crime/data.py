@@ -108,6 +108,9 @@ class Data:
         print self.data.info()
 
     def create_cluster(self):
+        """
+        Create new features 'Cluster' from original features, Latitude and Longtitude
+        """
         gmm = GaussianMixture(n_components=50, covariance_type='full', max_iter=300, n_init=2).\
             fit(self.data[['Latitude', 'Longitude']])
         self.data['Cluster'] = gmm.predict(self.data[['Latitude', 'Longitude']])

@@ -3,58 +3,39 @@ from data import Data
 from model import Model
 from time import time
 
-
 if __name__ == '__main__':
+    # create data class, which import the 2015-2016 crime data in Chicago
     crimes = Data()
-    # vis.plot_map_contour(crimes.data, 'Month')
-    # vis.plot_bar(crimes.data, 'Hour')
-    # vis.plot_heatmap(crimes.data, 'Location Description')
-    # vis.plot_bar(crimes.data, 'Month')
-    # vis.plot_heatmap(crimes.data, 'Month')
-    # vis.biplot(crimes.data, 'Month')
-    # vis.biplot(crimes.data, 'Hour')
-    # vis.biplot(crimes.data, 'Community Area', crimes.community_name)
-    # vis.plot_time(crimes.data)
+    # randomly sample 0.2 data to save computational time
     crimes.random_sample(0.2)
+    # preprocessing function in Data class includes:
+    # change data index,
+    # encode some features to label,
+    # create new feature
+    # and split data to train and test.
     crimes.preprocessing()
 
-    # param_logit_grid = {'logit_grid':
-    #                         {'penalty': ['l1', 'l2'],
-    #                          'C': [10 ** i for i in range(-3, 1, 1)]}}
-    # logit = Model(crimes, 'logit', param_logit_grid)
-    # logit.grid_search_all('accuracy', 3)
-    # logit.run_all('accuracy', 3)
+    # create a model class with grid search parameters by accuracy
+    # Optimal parameters are assigned
+    # run_all function fits the model then evaluates the performance in test data
+    start = time()
+    param_logit_grid = {'logit_grid':
+                            {'penalty': ['l1', 'l2'],
+                             'C': [10 ** i for i in range(-3, 1, 1)]}}
+    logit = Model(crimes, 'logit', param_logit_grid)
+    logit.grid_search_all('accuracy', 3)
+    logit.run_all('accuracy', 3)
+    end = time()
+    print 'Time used for logistic regression: {} min.'.format((end - start) / 60)
 
-
-    # param_logit = {'logit': {'penalty': 'l2', 'C': 1}}
-    # logit = Model(crimes, 'logit', param_logit)
-    # start = time()
-    # logit.run_all()
-    # end = time()
-    # print 'Time used: {}.'.format((end-start)/60)
-
-    # start = time()
-    # param_xgb = {'xgb_grid': {'learning_rate': [0.1],
-    #                      'n_estimators': [650],
-    #     		 'gamma': [1],
-    #     		 'max_depth': [4],
-    #     		 'subsample':[1]}}
-    # xgb = Model(crimes, 'xgb', param_xgb)
-    # res = xgb.grid_search_all('neg_log_loss', 3)
-    # print res
-    # res = xgb.grid_search_all('accuracy', 3)
-    # print res
-    # xgb.run_all()
-    # end = time()
+    # Similar grid search is made for xgboost model. Best parameters are chosen as follows.
     start = time()
     param_xgb = {'xgb': {'learning_rate': 0.1,
                          'n_estimators': 650,
-        		 'gamma': 1,
-        		 'max_depth': 4,
-        		 'subsample': 1}}
+                         'gamma': 1,
+                         'max_depth': 4,
+                         'subsample': 1}}
     xgb = Model(crimes, 'xgb', param_xgb)
     xgb.run_all()
     end = time()
-    print 'Time used: {}.'.format((end-start)/60)
-
-
+    print 'Time used for XGboost: {} min.'.format((end - start) / 60)
