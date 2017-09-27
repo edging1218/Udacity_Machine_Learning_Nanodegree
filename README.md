@@ -1,7 +1,33 @@
 # Udacity_Machine_Learning_Nanodegree
-Projects worked for Udacity Machine Learning Nanodegree
-> Titanic
-In this project, decision functions are created that attempt to predict survival outcomes from the 1912 Titanic disaster based on each passenger’s features, such as sex and age. A simple algorithm is tested to accurately predict the outcomes for at least 80% of the passengers in the provided data. 
-> Finding Donors for CharityML
-CharityML is a fictitious charity organization located in the heart of Silicon Valley that was established to provide financial support for people eager to learn machine learning. After nearly 32,000 letters sent to people in the community, CharityML determined that every donation they received came from someone that was making more than $50,000 annually. To expand their potential donor base, CharityML has decided to send letters to residents of California, but to only those most likely to donate to the charity. With nearly 15 million working Californians, CharityML has brought you on board to help build an algorithm to best identify potential donors and reduce overhead cost of sending mail. Your goal will be evaluate and optimize several different supervised learners to determine which algorithm will provide the highest donation yield while also reducing the total number of letters being sent. 
-> 
+Projects worked for the Machine Learning Engineer Nanodegree in Udacity
+- **Titanic Survival Exploration**
+    - In this project, decision functions are created that attempt to predict survival outcomes from the 1912 Titanic disaster based on each passenger’s features, such as sex and age.
+    - A simple algorithm is tested to accurately predict the outcomes for at least 80% of the passengers in the provided data.
+    
+- **Boston Housing**
+    -In this project, a _DecisionTreeRegressor_ is used to predict the Boston housing price, as a _supervised learning_ and _regression_ problem.
+    -The `r2_score` is used as metrics.
+    -Model performance, including _bias-variance tradeoff_, is analyzed by examing the learning curves (as a function of iterations) and complexity curves (as a function of model hyper-parameter).
+    -Hyper-parameters are chosen by grid search.
+    
+- **Finding Donors for CharityML**
+    - The goal of this project is to evaluate and optimize several different _supervised learners_ to determine which algorithm will provide the highest donation yield while also reducing the total number of letters being sent (_classification problem_).
+    - Data preprocessing includes  _log-transform_ (due to the skewness of data), `MinMaxScaler`, and `get_dummies`.
+    - The _accuracy_, _precision_, _recall_, _F-beta score_, and _confusion_matrix_ are used for evaluation.
+    - Several classifiers are testes, such as `LogisticREgression`,  `KNeighborsClassifier`, `GaussianNB`, `svm`, `SDGClassifier`, `RandomForestClassifier`, `AdaBoostClassifer`, `GradientBoostingClassifier`, where `AdaBoostClassifier` is the model with the best performance.
+    
+- **Creating Customer Segments**
+    - This project is to use _unsupervised learning_ techniques to see if any similarities exist between customers, and how to best segment customers into distinct categories.
+    - The `scatter_matrix` and `corr` are used to visualize the relevance between features.
+    - The `boxcox` and _log_transformation_ are used for data transformation.
+    - Outliers are deceted using _IQR_.
+    - _Principal component analysis (PCA)_ is used for data visualization in biplot.
+    - The _k_means_ and `GaussianMixture` models are used for clustering, with `silhouette_score` to determine the  optimal clustering number.
+    
+- **Train a Smartcab to Drive**
+   - This project is to use _reinforcement learning techniques_ to construct a demonstration of a smartcab operating in real-time to prove that both safety and efficiency can be achieved.
+   
+- **Dog Breed Classifier**
+    - In this project, a pipeline is built to process real-world, user-supplied images. Given an image of a dog, the algorithm used _Convolutional Neural Network (CNN)_ will identify an estimate of the canine’s breed. If supplied an image of a human, the code will identify the resembling dog breed.
+- **Chicago Crimes**
+    -
