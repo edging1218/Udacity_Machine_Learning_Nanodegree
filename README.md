@@ -5,10 +5,10 @@ Projects worked for the Machine Learning Engineer Nanodegree in Udacity
     - A simple algorithm is tested to accurately predict the outcomes for at least 80% of the passengers in the provided data.
     
 - **Boston Housing**
-    -In this project, a _DecisionTreeRegressor_ is used to predict the Boston housing price, as a _supervised learning_ and _regression_ problem.
-    -The `r2_score` is used as metrics.
-    -Model performance, including _bias-variance tradeoff_, is analyzed by examing the learning curves (as a function of iterations) and complexity curves (as a function of model hyper-parameter).
-    -Hyper-parameters are chosen by grid search.
+    - In this project, a _DecisionTreeRegressor_ is used to predict the Boston housing price, as a _supervised learning_ and _regression_ problem.
+    - The `r2_score` is used as metrics.
+    - Model performance, including _bias-variance tradeoff_, is analyzed by examing the learning curves (as a function of iterations) and complexity curves (as a function of model hyper-parameter).
+    - Hyper-parameters are chosen by grid search.
     
 - **Finding Donors for CharityML**
     - The goal of this project is to evaluate and optimize several different _supervised learners_ to determine which algorithm will provide the highest donation yield while also reducing the total number of letters being sent (_classification problem_).
@@ -26,8 +26,13 @@ Projects worked for the Machine Learning Engineer Nanodegree in Udacity
     
 - **Train a Smartcab to Drive**
    - This project is to use _reinforcement learning techniques_ to construct a demonstration of a smartcab operating in real-time to prove that both safety and efficiency can be achieved.
+   - Q-learning is used in forms of  `Q(s(t), a(t)) := Q(s(t), a(t)) + learning_rate * (reward(t) + gamma * max Q(s(t+1), a) - Q(s(t), a(t))`, where gamma is not presented.
    
 - **Dog Breed Classifier**
     - In this project, a pipeline is built to process real-world, user-supplied images. Given an image of a dog, the algorithm used _Convolutional Neural Network (CNN)_ will identify an estimate of the canine’s breed. If supplied an image of a human, the code will identify the resembling dog breed.
+    - The `keras` is used and `tensorflow` is the backend for CNN implementation.
+    - To reduce training time, _transfer learning_ is used, leveraging on the pre-trained VGG-16 model as a fixed feature extractor.
+    
 - **Chicago Crimes**
-    -
+    - In this project, the Chicago crime data is analyized and categorized into crimes types given time, location and solution, using machine learning algorithms. Data is imported from Chicago Data Portal website.
+    - _Logistic regression_ is used as a benchmark model and _XGBoost_ algorithm is applied with created new features and optimized parameters.
