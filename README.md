@@ -1,5 +1,5 @@
 # Udacity_Machine_Learning_Nanodegree
-Projects worked for the Machine Learning Engineer Nanodegree in Udacity
+The Machine Learning Engineer Nanodegree in Udacity
 - **Titanic Survival Exploration**
     - In this project, decision functions are created that attempt to predict survival outcomes from the 1912 Titanic disaster based on each passenger’s features, such as sex and age.
     - A simple algorithm is tested to accurately predict the outcomes for at least 80% of the passengers in the provided data.
