@@ -19,14 +19,14 @@ Code is provided in the `Chicago_crime.ipynb` notebook file. The `data.py`, `mod
 
 ### Run
 
-In a terminal or command window, navigate to the top-level project directory `finding_donors/` (that contains this README) and run one of the following commands:
+In a terminal or command window,  run one of the following commands:
 
 ```bash
-ipython notebook finding_donors.ipynb
+ipython notebook Chicago_crime.ipynb
 ```  
 or
 ```bash
-jupyter notebook finding_donors.ipynb
+jupyter notebook Chicago_crime.ipynb
 ```
 
 This will open the iPython Notebook software and project file in your browser.
